@@ -1,5 +1,6 @@
 from sys import argv
 # read the WYSS section for ow to run this
+# test
 script, first, second, third = argv
 print("The script is called:", script)
 print("Your first variable is:", first)
