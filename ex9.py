@@ -1,5 +1,6 @@
 # Here's some new strange stuff, remember type it exactly.
 
+#ten komentarz jest moj
 days = "Mon Tue Wed Thu Fri Sat Sun"
 months = "\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug"
 
