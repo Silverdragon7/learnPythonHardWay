@@ -26,9 +26,10 @@ if a == "Yes":
         """)
         c = input("> ")
             #ścieżka do zrobienia
-            print("""
-            Ta ścieżka nie jest jeszcze gotowa... dzięki za przetestowanie dema ;)
-            """)
+        print("""
+        Ta ścieżka nie jest jeszcze gotowa... dzięki za przetestowanie dema ;)
+        """)
+
     elif b == "No":
         print("""
         Wzruszasz ramionami i idziesz dalej ulicą jakby nic się nie stało. 
