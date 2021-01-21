@@ -6,17 +6,7 @@ if(len(argv) == 1):
     print("Podaj nazwę bohatera jako pierwszy argument.")
     exit()
 
-#powitanie
-skrypt, nazwaBohatera = argv
-print(f"Witaj w grze {skrypt}!. Twoja nazwa to {nazwaBohatera}. Czy chcesz kontynuować?(Yes/No)")
-a = input("> ")
-
-# informacje o zmiennych dla kodu
-counter = 1
-plik = f"{counter}.txt"
-escape = 0
-
-# skrypt czytający
+#skrypt czytający
 def czyt(czytany):
     return print(open(czytany).read())
 
@@ -40,18 +30,39 @@ def aktualnyn(counter):
     counter = counter * 10 + 1
     return f"{counter}.txt"
 
+# informacje o zmiennych dla kodu
+counter = 1
+plik = f"{counter}.txt"
+escape = 0
+#powitanie
+skrypt, nazwaBohatera = argv
+print(f"Witaj w grze {skrypt}!. Twoja nazwa to {nazwaBohatera}. Czy chcesz kontynuować?(Yes/No)")
+a = input("> ")
 
-#pętla właściwa z możliwością wyjścia z programu
+if a == "No":
+    exit("Żegnaj")
 
-print(czyt(plik))
-while escape != 1:
-    wybor(input("Yes/No\n> "))
-    if keyboard.is_pressed('q'):
-        escape = 1
-        print("Żegnaj")
+elif a == "Yes":
+    print("Wspaniale. Ruszajmy więc po przygodę!")
+    # pętla właściwa z możliwością wyjścia z programu
+
+    print(czyt(plik))
+    while escape != 1:
+        wybor(input("Yes/No\n> "))
+        if keyboard.is_pressed('q'):
+            escape = 1
+            print("Żegnaj")
+else:
+    print("Wybrano odpowiedź z poza zakresu.")
+    exit()
+
+#
+
+
+
 
 # if a == "Yes":
-#     print("Wspaniale. Ruszajmy więc po przygodę!")
+#
 #     print("""
 #     \rRok 1023 II ery
 #     \rGodzina 12.00
