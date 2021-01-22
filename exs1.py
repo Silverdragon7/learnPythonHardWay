@@ -6,34 +6,83 @@ if(len(argv) == 1):
     print("Podaj nazwę bohatera jako pierwszy argument.")
     exit()
 
-#skrypt czytający
-def czyt(czytany):
-    return print(open(czytany).read())
+# informacje o zmiennych dla kodu
+fraza = 1
+plik = "1.txt"
+escape = 0
 
-# skrypt pytający o odpowiedź i czytający odpowiedni plik
-def wybor(ans):
+#skrypt czytający
+def otworz_plik(czytany):
+    return open(czytany)
+
+def zczytaj_linie(linia, otwarty_plik):
+    return otwarty_plik.readlines()[linia]
+
+def zczytaj_wiecej_lini(linia, ilosci_lini, otwarty_plik):
+    text = ""
+    linia = linia + 1
+    ostatnia_linia = linia + ilosci_lini
+    lista_linijek = otwarty_plik.readlines()[linia:ostatnia_linia]
+    for zmienna in lista_linijek:
+        text += zmienna
+    return text
+
+# # wartości licznika i nazwy pliku
+# def aktualnyt(fraza):
+#     fraza = fraza * 10
+#     return fraza
+#
+# # zmiana wartości licznika i nazwy pliku
+# def aktualnyn(fraza):
+#     fraza = fraza * 10 + 1
+#     return fraza
+
+
+#funkcja szukająca frazy w pliku i podająca linię
+def szukaj(fraza, zrodlo):
+    counter = 1
+    with open(zrodlo, 'r') as read_obj:
+        for line in read_obj:
+            if f"#{fraza}" in line:
+
+                return counter
+            counter = counter + 1
+
+# skrypt pytający o odpowiedź i czytający odpowiednią linię
+def wybor(ans, fraza):
     if ans == "Yes":
-        czyt(aktualnyt(counter))
+        fraza = fraza * 10
+        counter = szukaj(fraza, plik)
+
+        poczatek_lini = zczytaj_linie(counter, otworz_plik(plik))
+        print(zczytaj_wiecej_lini(counter, int(poczatek_lini), otworz_plik(plik)))
+        zakonczenie = zczytaj_linie(counter + int(poczatek_lini) + 1, otworz_plik(plik))
+        #print(zakonczenie)
+        zakoncz = False
+        if zakonczenie == "x\n":
+            zakoncz = True
+        return fraza, zakoncz
+
     elif ans == "No":
-        czyt(aktualnyn(counter))
+        fraza = fraza * 10 + 1
+        counter = szukaj(fraza, plik)
+
+        poczatek_lini = zczytaj_linie(counter, otworz_plik(plik))
+        print(zczytaj_wiecej_lini(counter, int(poczatek_lini), otworz_plik(plik)))
+
+        zakonczenie = zczytaj_linie(counter + int(poczatek_lini) + 1, otworz_plik(plik))
+        #print(zakonczenie)
+        zakoncz = False
+        if zakonczenie == "x\n":
+            zakoncz = True
+        return fraza, zakoncz
+
     else:
         print("Wybrano odpowiedź z poza zakresu.")
         exit()
 
-# wartości licznika i nazwy pliku
-def aktualnyt(counter):
-    counter = counter * 10
-    return f"{counter}.txt"
 
-# zmiana wartości licznika i nazwy pliku
-def aktualnyn(counter):
-    counter = counter * 10 + 1
-    return f"{counter}.txt"
 
-# informacje o zmiennych dla kodu
-counter = 1
-plik = f"{counter}.txt"
-escape = 0
 #powitanie
 skrypt, nazwaBohatera = argv
 print(f"Witaj w grze {skrypt}!. Twoja nazwa to {nazwaBohatera}. Czy chcesz kontynuować?(Yes/No)")
@@ -46,19 +95,19 @@ elif a == "Yes":
     print("Wspaniale. Ruszajmy więc po przygodę!")
     # pętla właściwa z możliwością wyjścia z programu
 
-    print(czyt(plik))
-    while escape != 1:
-        wybor(input("Yes/No\n> "))
-        if keyboard.is_pressed('q'):
-            escape = 1
-            print("Żegnaj")
+    print(zczytaj_wiecej_lini(1, 3, open(plik)))
+    fraza = 1
+    while escape == False:
+        fraza, escape = wybor(input("Yes/No\n> "), fraza)
+        print(escape)
 else:
     print("Wybrano odpowiedź z poza zakresu.")
     exit()
 
-#
 
 
+
+#counter to licznik linii a fraza to zerojedynkowy wyznacznik szukanej części tekstu
 
 
 # if a == "Yes":
