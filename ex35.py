@@ -2,12 +2,9 @@ from sys import exit
 
 def gold_room():
     print("This room is full of gold. How much do you take?")
+    # w przypadku wpisania zmiennej innej niż int walidacja każe powtórzyć wpisanie
+    how_much = walidacja(input("> "))
 
-    choice = input("> ")
-    if "0" in choice or "1" in choice:
-        how_much = int(choice)
-    else:
-        dead("Man, learn to type a number.")
 
     if how_much < 50:
         print("Nice, you're not too greedy, you win!")
@@ -15,6 +12,13 @@ def gold_room():
     else:
         dead("You greedy bastard!")
 
+def walidacja(zmienna):
+    if zmienna.isdigit() == True:
+        zmienna = int(zmienna)
+        return zmienna
+    else:
+        print("Type valid number.")
+        gold_room()
 
 def bear_room():
     print("There is a bear here.")
