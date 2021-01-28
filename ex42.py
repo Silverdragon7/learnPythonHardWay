@@ -8,6 +8,8 @@ class Dog(Animal):
     def __init__(self, name):
         ## ??
         self.name = name
+        print(f"{name} goes:")
+        print("bark bark")
 
 ## ?? Cat is-a Animal
 class Cat(Animal):
@@ -15,6 +17,8 @@ class Cat(Animal):
     def __init__(self, name):
         ## ?? Cat has-a name
         self.name = name
+        print(f"{name} goes:")
+        print("meow")
 
 ## ?? Person is-a object
 class Person(object):
@@ -37,7 +41,9 @@ class Employee(Person):
 
 ## ?? Fish is-a object
 class Fish(object):
-    pass
+
+    def __init__(self):
+        print("bul bul bul")
 
 ## ?? Salmon is-a Fish
 class Salmon(Fish):
@@ -68,3 +74,9 @@ course = Salmon()
 
 ## ?? harry is-a Fish
 harry = Halibut()
+
+class psokot(Dog, Cat):
+    def __init__(self, name):
+        super(psokot, self).__init__(name)
+
+lis = psokot("Lis")
