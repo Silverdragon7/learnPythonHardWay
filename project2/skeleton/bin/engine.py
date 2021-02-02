@@ -339,8 +339,18 @@ class Map(object):
         return self.next_scene(self.start_scene)
 
 
-a_map = Map('intro')
-a_game = Engine(a_map)
-a_game.play()
+# a_map = Map('intro')
+# a_game = Engine(a_map)
+# a_game.play()
 
 # refactor żeby funkcja zwracała tekst
+# silnik musi przy podanym argumencie tak/nie
+# samemu wybrać tekst i poruszyć się w mapie
+
+def funkcja(self, argument):
+    if argument == "tak":
+        return argument
+    elif argument == "nie":
+        return argument
+    else:
+        return "nic"
