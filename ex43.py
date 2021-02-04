@@ -28,10 +28,10 @@ class Engine(object):
 class Death(Scene):
 
     quips = [
-        "Umarłeś. Jesteś wtym do bani."
-        "Twoja matka byłaby dumna... gdyby była mądrzejsza."
-        "Ale z ciebie ciołek."
-        "Mam szczeniaka, który robi to lepiej."
+        "Umarłeś. Jesteś wtym do bani.",
+        "Twoja matka byłaby dumna... gdyby była mądrzejsza.",
+        "Ale z ciebie ciołek.",
+        "Mam szczeniaka, który robi to lepiej.",
         "Jesteś gorszy niż dowcipy Twojego ojca."
     ]
 
