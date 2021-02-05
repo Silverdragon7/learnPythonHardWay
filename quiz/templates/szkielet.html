@@ -47,7 +47,7 @@
                         <ul class="nav navbar-nav">
 
                             {% for href, id, tekst in navigation_bar %}
-                                <li{% if id == active_page %} class="active"{% endif %}>
+                                <li>{% if id == active_page %} class="active"{% endif %}>
                                 <a href="{{ href|e }}">{{ tekst|e }}</a>
                             </li>
                         {% endfor %}
@@ -83,7 +83,7 @@
         <!-- jQuery CDN -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
          integrity="integrity=sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-         crossorigin="anonymous"</script>
+         crossorigin="anonymous"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
