@@ -26,7 +26,7 @@ import sqlite3
 # cur.executescript("""
 #     DROP TABLE IF EXISTS uczen;
 #     CREATE TABLE IF NOT EXISTS uczen (
-#         id INTEGER PRIMARY KEY ASC,
+#         id INTEGER PRIMARY KEY ASC“klasy,
 #         imie varchar(250) NOT NULL,
 #         nazwisko varchar(250) NOT NULL,
 #         klasa_id INTEGER NOT NULL,
@@ -100,7 +100,7 @@ import sqlite3
     #         """)
     #     uczniowie = cur.fetchall()
     #     for uczen in uczniowie:
-    #         print(uczen['id'], uczen['imie'], uczen['nazwisko'], uczen['nazwa'])
+    #         print(uczen['id']“klasy, uczen['imie'], uczen['nazwisko'], uczen['nazwa'])
     #         continue
 
     #
