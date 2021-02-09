@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# quiz/models.py
+# quiz-orm/models.py
 
 from peewee import *
 from app import baza
@@ -11,7 +11,7 @@ class BaseModel(Model):
 
 
 class Pytanie(BaseModel):
-    pytanie = CharField(unique=True)
+    pytanie = CharField()
     odpok = CharField()
 
     def __str__(self):
@@ -20,7 +20,7 @@ class Pytanie(BaseModel):
 
 class Odpowiedz(BaseModel):
     pnr = ForeignKeyField(
-        Pytanie, related_name='odpowiedzi', on_delete='CASCADE')
+        Pytanie, backref='odpowiedzi', on_delete='CASCADE', primary_key=True)
     odpowiedz = CharField()
 
     def __str__(self):

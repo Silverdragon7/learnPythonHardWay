@@ -1,0 +1,18 @@
+{% extends "szkielet.html" %}
+{% set active_page = "lista" %}
+{% block tytul %}Lista wojowników{% endblock %}
+{% block h1 %}Lista{% endblock%}
+{% block tresc %}
+    {% for przedmiot in przedmioty %}
+        <div class="col-md-1">
+            {{ przedmiot.id }}
+        </div>
+        <div class="col-md-4">
+            {{ przedmiot.nazwa_przedmiotu }}
+        </div>
+        <div class="col-md-7">
+            {{ przedmiot.opis }}
+        </div>
+    {% endfor %}
+
+{% endblock %}

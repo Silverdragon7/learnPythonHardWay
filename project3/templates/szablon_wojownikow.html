@@ -1,0 +1,19 @@
+{% extends "szkielet.html" %}
+{% set active_page = "lista" %}
+{% block tytul %}Lista wojowników{% endblock %}
+{% block h1 %}Lista{% endblock%}
+{% block tresc %}
+
+    {% for wojownik in wojownicy %}
+        <div class="col-md-1">
+            {{ wojownik.id }}
+        </div>
+        <div class="col-md-6">
+            {{ wojownik.nazwa }}
+        </div>
+        <div class="col-md-5">
+            <a href="{{ url_for('ekwipunek', id=wojownik.id ) }}" class="btn btn-default">Ekwipunek</a>
+        </div>
+    {% endfor %}
+
+{% endblock %}

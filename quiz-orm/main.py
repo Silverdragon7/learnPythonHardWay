@@ -9,6 +9,6 @@ from dane import *
 
 if __name__ == '__main__':
     if not os.path.exists(app.config['DATABASE']):
-        baza.create_tables([Pytanie, Odpowiedz], True)  # tworzymy tabele
+        baza.create_tables([Pytanie, Odpowiedz])  # tworzymy tabele
         dodaj_pytania(pobierz_dane('pytania.csv'))
     app.run(debug=True)

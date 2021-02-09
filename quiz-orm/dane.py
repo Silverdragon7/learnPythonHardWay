@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# quiz/dane.py
+# quiz-orm/dane.py
 
 import os
 import csv
